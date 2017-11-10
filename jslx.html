@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录</title>
+</head>
+<body>
+	<script>
+		var shuzu=["a","b","c"];
+
+		alert(shuzu.push("d"));    //	向数组的末尾添加一个或更多元素，并返回新的长度
+		alert(shuzu.pop());     //删除并返回数组的最后一个元素
+		alert(shuzu.unshift("A","B"));  alert(shuzu);   //向数组的开头添加一个或更多元素，并返回新的长度。
+		alert(shuzu.reverse());    //颠倒数组中元素的顺序
+		alert(shuzu.sort());      //对数组的元素进行排序,sort方法比较的是字符串。sort()方法可以接受一个比较函数作为参数。
+		var shuzu1=shuzu.concat("d",["e","f"]);   alert(shuzu1);  //concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本
+		var shuzu2=shuzu1.slice(2,4);    alert(shuzu2);   
+	</script>
+</body>
+</html>
