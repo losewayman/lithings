@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script>
-		var shuzu=["a","b","c"];
+		/*var shuzu=["a","b","c"];
 
 		alert(shuzu.push("d"));    //	向数组的末尾添加一个或更多元素，并返回新的长度
 		alert(shuzu.pop());     //删除并返回数组的最后一个元素
@@ -15,6 +15,34 @@
 		alert(shuzu.sort());      //对数组的元素进行排序,sort方法比较的是字符串。sort()方法可以接受一个比较函数作为参数。
 		var shuzu1=shuzu.concat("d",["e","f"]);   alert(shuzu1);  //concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本
 		var shuzu2=shuzu1.slice(2,4);    alert(shuzu2);   
+		*/
+		/*
+		var person = {
+        	_age: 18
+        };
+        Object.defineProperty(person, 'isAdult', {
+        	get: function () {
+        		if (this._age >= 18) {
+           		return true;
+        		} else {
+            		return false;
+        		}
+    		}
+		});
+		alert(person.isAdult?'成年':'未成年');//成年
+		*/
+
+		function Person(){
+		}
+		Person.prototype.name = 'Jack';//使用原型来添加属性
+		Person.prototype.age = 29;
+		Person.prototype.getName = function(){
+   			return this.name;
+		}
+		var person1 = new Person();
+		alert(person1.getName());//Jack
+		var person2 = new Person();
+		alert(person1.getName === person2.getName);//true;共享一个原型对象的方法
 	</script>
 </body>
 </html>
