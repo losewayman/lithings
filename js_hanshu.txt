@@ -1,0 +1,44 @@
+ arguments     arguments对象是所有（非箭头）函数中都可用的局部变量。你可以使用arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数的条目，第一个条目的索引从0开始。例如，如果一个函数传递了三个参数，你可以以如下方式引用他们：
+	      arguments对象不是一个 Array 。它类似于Array，但除了长度之外没有任何Array属性。
+		arguments[0]
+		arguments[1]
+		arguments[2]
+
+ arguments.callee 属性包含当前正在执行的函数。
+ callee 是 arguments 对象的一个属性。它可以用于引用该函数的函数体内当前正在执行的函数。
+ 在严格模式下，第5版 ECMAScript (ES5) 禁止使用 arguments.callee()。
+ function create() {
+    return function(n) {
+       if (n <= 1)
+          return 1;
+       return n * arguments.callee(n - 1);
+    };
+ }
+
+ var result = create()(5); // returns 120 (5 * 4 * 3 * 2 * 1)
+
+ 闭包     闭包是指有权访问另一个函数作用域中的变量的函数，可以把闭包简单理解成"定义在一个函数内部的函数"。
+ 闭包的用途    它的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
