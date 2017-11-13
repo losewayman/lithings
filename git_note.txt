@@ -1,0 +1,64 @@
+﻿ mkdir   创建一个空目录
+
+cd xx    进入xx目录
+
+cd ..    返回上一级目录
+
+pwd    命令用于显示当前目录。
+
+git init   命令把当前目录变成Git可以管理的仓库
+
+把一个文件放到Git仓库只需要两步：
+    1.用命令git add告诉Git，把文件添加到仓库：git add xx
+	2.用命令git commit告诉Git，把文件提交到仓库：git commit -m "yy" (-m "yy" 添加注释）
+	
+git status   显示git 仓库的状态
+	On branch master（在分支主机上）
+	Changes to be committed（要提交的更改）
+	(use "git reset HEAD <file>..." to unstage) Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+
+git log   命令显示从最近到最远的提交日志。
+
+git log --pretty=oneline   显示第一行简述信息（同git log）
+
+cat xx  打开文件xx
+
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+    • 穿梭前，git log可以查看提交历史，以便确定要回退到哪个版本。
+    • 要重返未来，git reflog查看命令历史，以便确定要回到未来的哪个版本。
+	
+ Changes not staged for commit（未进行提交的修改）
+ update what will be committed（更新提交的内容）
+ discard changes in working directory（放弃工作目录中的更改）
+ 
+ git checkout -- readme.txt   意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+     一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+     一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+  总之，就是让这个文件回到最近一次git commit或git add时的状态。
+ git diff HEAD -- xx.txt”命令可以查看工作区和版本库里面最新版本的区别。
+
+ 要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+ 关联后，用命令git push -u origin master第一次推送master分支的所有内容；
+ 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+   
+ git clone 远程库地址      克隆一个仓库
+
+  
+
+ git checkout -b xx    创建xx分支，然后切换到xx分支
+       git checkout命令加上-b参数表示创建并切换
+ git branch   查看当前分支
+ git checkout xx    切换回xx分支
+ git merge dev     把dev分⽀的工作成果合并到当前所在分支上
+ git branch -d xx    删除xx分支
+       查看分支：git branch
+       创建分支：git branch name
+       切换分支：git checkout name
+       创建+切换分支：git checkout -b name
+       合并某分支到当前分支：git merge name
+       删除分支：git branch -d name
+--no-ff方式的merge：git merge --no-ff -m "merge with no-ff" dev   --no-ff参数，表示禁用“Fast forward”  强制禁⽤“Fast forward”模式，Git就会在merge时⽣成⼀个新的commit，这
+ 样，从分⽀历史上就可以看出分⽀信息。
+
+修复bug时，我们会通过创建新的bug分别进行修复，然后合并，最后删除；
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
