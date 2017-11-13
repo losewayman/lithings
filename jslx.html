@@ -31,8 +31,9 @@
 		});
 		alert(person.isAdult?'成年':'未成年');//成年
 		*/
-
+		/*
 		function Person(){
+			Person.prototype.name = 'tom';
 		}
 		Person.prototype.name = 'Jack';//使用原型来添加属性
 		Person.prototype.age = 29;
@@ -40,9 +41,17 @@
    			return this.name;
 		}
 		var person1 = new Person();
-		alert(person1.getName());//Jack
+		alert(person1.getName());//tom
+		alert(person1.prototype);
 		var person2 = new Person();
 		alert(person1.getName === person2.getName);//true;共享一个原型对象的方法
+		*/
+		var person = {
+    	_age: 18
+    	};
+    	Object.defineProperty(person,'_age',{value:20});
+		var descriptor = Object.getOwnPropertyDescriptor(person,'_age');
+		alert(descriptor.value);//19
 	</script>
 </body>
 </html>
