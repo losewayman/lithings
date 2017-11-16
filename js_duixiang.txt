@@ -110,5 +110,5 @@ typeof
 instansof
 
 constructor
-protoype
+prototype
 
