@@ -5,6 +5,12 @@
 	<title>登录</title>
 </head>
 <body>
+	<div id="div1">
+            <p id="p1" class="class1">
+                我是第一个P</p>
+            <p id="p2" class="class2">
+                我是第二个P</p>
+      </div>
 	<script>
 		/*var shuzu=["a","b","c"];
 
@@ -16,6 +22,7 @@
 		var shuzu1=shuzu.concat("d",["e","f"]);   alert(shuzu1);  //concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本
 		var shuzu2=shuzu1.slice(2,4);    alert(shuzu2);   
 		*/
+
 		/*
 		var person = {
         	_age: 18
@@ -31,6 +38,7 @@
 		});
 		alert(person.isAdult?'成年':'未成年');//成年
 		*/
+
 		/*
 		function Person(){
 			Person.prototype.name = 'tom';
@@ -46,12 +54,27 @@
 		var person2 = new Person();
 		alert(person1.getName === person2.getName);//true;共享一个原型对象的方法
 		*/
+
+		/*
 		var person = {
     	_age: 18
     	};
     	Object.defineProperty(person,'_age',{value:20});
 		var descriptor = Object.getOwnPropertyDescriptor(person,'_age');
-		alert(descriptor.value);//19
+		alert(descriptor.value);
+		*/
+		window.onload = function () {
+            var node = document.getElementById("div1");
+            var node1 = node.firstElementChild;
+            var node2 = node.lastElementChild;
+
+            alert(node.childElementCount);  //输出2，div1一共有两个非文档子元素节点
+            alert(node1.innerHTML);         //输出 我是第一个P
+            alert(node2.innerHTML);         //输出 我是第二个P
+            alert(node2.previousElementSibling.innerHTML);  //输出 我是第一个P(第二个元素节点的上一个非文本元素节点是P1)
+            alert(node1.nextElementSibling.innerHTML);      //输出 我是第二个P(第一个元素节点的下一个兄弟非文本节点是P2)
+            alert(node.getAttribute("id"));
+        }
 	</script>
 </body>
 </html>
