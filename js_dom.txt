@@ -1,0 +1,26 @@
+DOM
+ 
+一.节点
+
+文档节点 是每个文档的根节点。html 元素为文档元素。
+文档元素是文档的最外层元素
+文档中的其他所有元素都包含在文档元素中。
+每个文档都只能有一个文档元素。
+在html页面中，文档元素始终都是html元素。
+
+1.DOM树 
+DOM树的根统一为文档根—document，DOM既然是树状结构，那么他们自然有如下的几种关系: 
+document(根结点) 
+    parentNode(父结点)     指向调用节点的上一级节点。
+        childNodes(子结点)    指向下一级节点，以类数组返回，每个节点都有，保存一个NodeList对象，类数组，有length属性。
+            sibling(兄弟结点)
+            previousSibling(上兄弟节点)    可在子节点中访问上下临近节点。
+            nextSibling(下兄弟节点)
+        firstChild(第一个子节点)
+        lastChild(最后一个子节点)
+hasChildNodes()    在节点包含一个或多个子节点的情况下，返回true;
+ownerDoucument     该属性指向表示整个文档的文档节点。
+
+2.操作节点
+appendChild()   添加节点     向childNodes列表的末尾添加一个节点，若传入的节点已经是文档的一部分，则该节点将由原来位置转移到新位置。
+
