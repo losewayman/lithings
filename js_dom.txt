@@ -32,6 +32,108 @@ cloneNode()     创建调用这个方法的节点的一个完全相同的副本。接受一个布尔值：
 									false：浅复制，只复制节点本身；
 								复制后返回的节点副本属于文档所有，没有父节点。
 
+3.Document类型
+  documentElement属性：该属性始终指向HTML页面中的< html >元素，较为方便快捷
+       var html = document.documentElement; ////取得对<html>的引用
+  body属性，直接指向< body >元素。
+       var body = document.body; //取得对<body>的引用
+  doctype属性，访问<!DOCTYPE>
+       var doctype = document.doctype; // 取得对<!DOCTYPE>的引用
+  title属性包含着< title >元素中的文本——显示在浏览器窗口的标题栏或标签页上。可调用，可修改。
+       var originalTitle = document.title;    //取得文档标题
+       document.title = "new page title";    //设置文档标题
+
+  URL属性 中包含着页面完整的URL（即地址栏中显示的URL）
+  domain属性 中只包含页面的域名
+  referrer属性 中则保存着链接到当前页面的那个页面的URL。在没有来源页面的情况下，referrer属性中可能会包含空字符串。
+       三个属性都与对网页的请求有关。
+       URL与domain属性是相互关联的，如document.URL为 http://www.wrox.com/WileyCDA；那么document.domain就等于 www.wrox.com。
+       在这3个属性中，只有domian是可以设置的。但由于安全方面的限制，也并非可以给domain设置任何值，不能将这个属性设置为URL中不包含的域。
+       浏览器对domain属性还有一个限制，如果域名一开始是“松散的”（loose），那么不能将它再设置为紧绷的（tight）。（内容只能变少，不能变多）
+
+3.1 查找元素
+  getElementById（） 接收一个参数：要取得的元素Id。如果找到相应的元素就返回该元素，如果没有找到就返回null。 这里的id必须和页面中元素的id特性严格匹配，包括大小写。如果页面中多个元素的ID值相同，getElementById（）只返回文档中第一次出现的元素。
+  getElementsByTagName（） 这个方法接收一个参数，即要取得元素的标签名，返回的是包含零或多个元素的NodeList。在HTML文档中，这个方法会返回一个HTMLCollection对象，作为一个“动态”集合，该对象与NodeList类似。
+  getElementsByName（） 只有HTMLDocument类型才有的方法，这个方法会返回带有给定name特性的所有元素。 
+  document.getElementsByClassName()  根据class获取元素节点
+
+3.2 特殊集合
+
+  除了属性和方法，document对象还有一些特殊的集合。这些集合都是HTMLCollection对象，为访问文档常用的部分提供了快捷方式。
+  document.anchors：包含文档中所有带name属性的< a >元素
+  document.applets：包含文档中所有的< applet >元素，因为不再使用推荐这个元素，所以这个集合已经不建议使用了。
+  document.forms：包含文档中所有的< form >元素
+  document.images：包含文档中所有的< img >元素
+  document.links：包含文档中所有带href属性的< a >元素
+  这个特殊集合始终都可以通过HTMLDocument对象访问到，而且集合中的项也会随着当前文档内容的更新而更新。
+
+3.3 文档写入
+  write（）和writeln（）方法都接收一个字符串参数，即要写入输出流中的文本。
+       write（）会原样写入
+       writeln（）会在字符串的末尾添加一个换行符（\n）
+  这两个方法分别用于打开和关闭网页的输出流。如果实在页面加载期间使用write（）或writeln（）方法，则不需要用到这两个方法。
+       open（）
+       close（）
+  
+4. Element类型
+  所有HTML元素都由HTMLElement类型或其子类型表示。HTMLElement继承自Element并添加了一些属性。添加的这些属性分别对应于每个HTML元素中都存在的下列标准特性：
+      id
+      title：有关元素的附加说明信息，一般通过工具提示条显示出来
+      lang：元素内容的语言代码，很少使用
+      dir：语言的方向，值为“ltr”或“rtl”
+      className：与元素的class特性对应，没有命名为class是因为class是ECMAscript的保留字。
+      上述这些属性都可以用来取得或修改相应的特性值。
+
+  并不是对所有属性的修改都会在页面中直观地表现出来。
+
+       对id、lang的修改对用户而言是不可见的（如果没有基于它们设置的css样式）
+       对title的修改则只会在鼠标移动到这个元素上时才会显示出来
+       对dir的修改则会在属性被重写的那一刻，立即影响页面中文本的左右
+       修改className时，如果新类关联了与此前不同的css样式，那么就会立即应用新的样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
