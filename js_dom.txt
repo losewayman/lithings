@@ -52,9 +52,9 @@ cloneNode()     创建调用这个方法的节点的一个完全相同的副本。接受一个布尔值：
        浏览器对domain属性还有一个限制，如果域名一开始是“松散的”（loose），那么不能将它再设置为紧绷的（tight）。（内容只能变少，不能变多）
 
 3.1 查找元素
-  getElementById（） 接收一个参数：要取得的元素Id。如果找到相应的元素就返回该元素，如果没有找到就返回null。 这里的id必须和页面中元素的id特性严格匹配，包括大小写。如果页面中多个元素的ID值相同，getElementById（）只返回文档中第一次出现的元素。
-  getElementsByTagName（） 这个方法接收一个参数，即要取得元素的标签名，返回的是包含零或多个元素的NodeList。在HTML文档中，这个方法会返回一个HTMLCollection对象，作为一个“动态”集合，该对象与NodeList类似。
-  getElementsByName（） 只有HTMLDocument类型才有的方法，这个方法会返回带有给定name特性的所有元素。 
+  document.getElementById（） 接收一个参数：要取得的元素Id。如果找到相应的元素就返回该元素，如果没有找到就返回null。 这里的id必须和页面中元素的id特性严格匹配，包括大小写。如果页面中多个元素的ID值相同，getElementById（）只返回文档中第一次出现的元素。
+  document.getElementsByTagName（） 这个方法接收一个参数，即要取得元素的标签名，返回的是包含零或多个元素的NodeList。在HTML文档中，这个方法会返回一个HTMLCollection对象，作为一个“动态”集合，该对象与NodeList类似。
+  document.getElementsByName（） 只有HTMLDocument类型才有的方法，这个方法会返回带有给定name特性的所有元素。 
   document.getElementsByClassName()  根据class获取元素节点
 
 3.2 特殊集合
@@ -103,33 +103,57 @@ cloneNode()     创建调用这个方法的节点的一个完全相同的副本。接受一个布尔值：
              通过getAttribute（）访问，就会返回相应代码的字符串
              访问onclick属性，则会返回一个js函数（如果未在元素中指定相应特性则返回null）。
 
-setAttribute（）   设置特性
+  setAttribute（）   设置特性
       这个方法接收两个参数：要设置的特性名和值。
             特性已经存在，则会以指定的值替换现有的值
             特性不存在，会创建该属性并设置相应的值
 
-removeAttribute（）
+  removeAttribute（）
      这个方法用于彻底删除元素的特性。 
      调用这个方法不仅会清除特性的值，而且也会从元素中完全删除特性。
 
+  attributes
+	Element类型是使用attributes属性的唯一一个DOM节点类型。 
+	attributes属性中包含一个NamedNodeMap，与NodeList类似，也是一个动态的元素集合。 
+	元素的每一个特性都有一个Attr节点表示，每个节点都保存在NamedNodeMap对象中。
+ 
+	NamedNodeMap对象拥有下列方法：
+	getNamedItem（name）：返回nodeName属性等于name的节点
+	removeNamedItem（name）：从列表中移除nodeName属性等于name的节点。
+	setNamedItem（node）：向列表中添加节点，以节点的nodeName属性为索引
+	item（pos）：返回为与数字pos位置处的节点。
 
+4.1 创建元素
+  document.createElement（）   这个方法可以创建新元素。只接受一个参数，即要创建元素的标签名。这个标签名在html中不区分大小写，而在xml中则是区分大小写的。 此方法返回这个新元素的引用。
+                               在使用createElement（）方法创建新元素的同时，也为新元素设置了ownerDocument属性。
+                               新创建的元素未被添加到文档树中，可以使用appendChild，insertBefore、replaceChild等方法把新创建的元素添加到文档中
+                               一旦将元素添加到文档树中，浏览器就会立即呈现该元素。此后，对这个元素所做的任何修改都会实时反映在浏览器中.
 
+5.Text类型
+  可以通过nodeValue属性或data属性访问Text节点中包含的文本，这两个属性中包含的值相同。对nodeValue修改也会通过data反映出来，反之亦然。使用下列方法可以操作节点中的文本：
+  appendData（text）：    将text添加到节点的末尾
+  deleteData（offset，count）：	   从offset指定的位置开始删除count个字符
+  insertData（offset，text）：	  在offset指定的位置插入text
+  replaceData（offset，count，text）：	  用text替换从offset指定的位置开始到offset+count为止处的文本。
+  splitText（offset）：    从offset指定的位置将当前文本节点分成两个文本节点
+  substringData（offset，count）：    提取从offset指定的位置开始到offset+count为止处的字符串。
+  除了这些方法之外，文本节点还有一个length属性，保存着节点中字符的数目。而且，nodeValue.length和data.length中也保存着同样的值。
 
+5.1 创建文本节点
+  document.createTextNode（）    可以使用此方法创建新文本节点，这个方法接收一个参数，即要插入节点中的文本。
 
+5.2  规范化文本节点
+  normalize（）  这个方法由Node类型定义。 如果在一个包含两个或多个文本节点的父元素上调用normalize（）方法，则会将所有文本节点合并成一个节点。结果节点的nodeValue等于将合并前每个文本节点的nodeValue值拼接起来的值
 
+5.3分隔文本节点
+  Text类型提供了一个作用域normalize（）相反的方法：
+  splitText（）     这个方法会将一个文本节点分成两个文本节点，即按照指定的位置分隔nodeValue值。原来的文本节点将会包含从开始到指定位置之前的内容，新文本节点将包含剩下的文本。 
+                    这个方法会返回一个新文本节点，该节点与原节点的parentNode相同。
 
-
-
-
-
-
-
-
-
-
-
-
-
+6. Comment类型
+  注释在DOM中是通过Comment类型来表示的。
+  Comment类型与Text类型继承自相同的基类，因此它拥有除splitText（）之外的所有字符串操作方法。与Text类型类似，也可以通过nodeValue或data属性来取得注释的内容。 
+  document.createComment（）使用此方法可以为其传递注释文本也可以创建注释节点。
 
 
 

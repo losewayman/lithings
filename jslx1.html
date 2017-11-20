@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>练习</title>
+</head>
+<body>
+	<div id="div1"><p id="p1" class="class1">
+                我是第一个P</p>
+            <p id="p2" class="class2">
+                我是第二个P</p>
+      </div>
+	<script>
+		var divm=document.getElementById("div1");
+		alert(divm.childNodes.length);
+		alert(divm.childNodes[3].nodename);
+        divm.childNodes[1].appendData("123");
+        alert(divm.childNodes.length);
+        var newtext=document.createTextNode("456");
+        divm.insertBefore(newtext,divm.childNodes[1]);
+        alert(divm.childNodes.length);
+	</script>
+</body>
+</html>
