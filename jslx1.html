@@ -5,12 +5,14 @@
 	<title>练习</title>
 </head>
 <body>
-	<div id="div1"><p id="p1" class="class1">
+	<div id="div1">
+		<p id="p1" class="class1">
                 我是第一个P</p>
             <p id="p2" class="class2">
                 我是第二个P</p>
       </div>
 	<script>
+		/*      文本
 		var divm=document.getElementById("div1");
 		alert(divm.childNodes.length);
 		alert(divm.childNodes[3].nodename);
@@ -19,6 +21,24 @@
         var newtext=document.createTextNode("456");
         divm.insertBefore(newtext,divm.childNodes[1]);
         alert(divm.childNodes.length);
+        */
+
+        /*      节点
+        var divm=document.getElementById("div1");
+        var h1=document.createElement("h1");
+        h1.id="1";
+        h1.innerHTML="123";
+        alert(divm.childNodes.length);
+
+        //divm.appendChild(h1);       添加节点
+        
+        //divm.insertBefore(h1,divm.childNodes[1]);       插入节点
+
+        //divm.replaceChild(h1,divm.childNodes[1]);       替换节点
+
+        //divm.removeChild(divm.childNodes[1]);        删除节点
+        alert(divm.childNodes.length);
+        */
 	</script>
 </body>
 </html>
