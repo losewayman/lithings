@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ajax练习</title>
+  </head>
+  <body>
+    <script>
+      function my()
+      {
+        var xmlhttp;
+        if(window.XMLHttpRequest)
+          xmlhttp=new XMLHttpRequest();
+        else
+          xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
+        xmlhttp.onreadystatechange=function(){
+          if(xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+            document.getElementById("p1").innerHTML=xmlhttp.responseText;
+          }
+
+        }
+        xmlhttp.open("GET","",true);
+        xmlhttp.send();
+      }
+    </script>
+    <p id="p1">123456789</p>
+    <input  type="button" value="提交" onclick="my()">
+  </body>
+</html>
