@@ -1,4 +1,4 @@
-<html>
+<!doctype html>
   <head>
     <meta charset="utf-8">
     <title>ajax练习</title>
@@ -7,27 +7,22 @@
     <script>
       function my()
       {
-        var a=1;
         var xmlhttp;
         if(window.XMLHttpRequest)
           xmlhttp=new XMLHttpRequest();
         else
           xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
         xmlhttp.onreadystatechange=function(){
-          
-          a++;
-          alert(a);
+
           if(xmlhttp.readyState==4 && xmlhttp.status==200)
           {
-            alert("m");
             document.getElementById("p1").innerHTML=xmlhttp.responseText;
           }
 
         }
-        alert(a);
-        xmlhttp.open("GET","",true);
+        xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origi", "*");
         xmlhttp.send();
-        alert("n");
       }
     </script>
     <p id="p1">123456789</p>
