@@ -1,0 +1,56 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>贪吃蛇</title>
+	<style>
+	#div1 {
+		position:absolute;
+		margin:0px;
+		width:500px;
+		height:500px;
+		background-color: #AAAAAA;
+		z-index: -1;
+	}
+	#div2 {
+		float:left;
+		margin:0px;
+		width:48px;
+		height:48px;
+		border:1px solid black;
+	}
+</style>
+
+</head>
+<body>
+	<div id="div1">
+	</div>
+	<div id="div2">
+	</div>
+
+
+
+	<script>
+		function my(){
+			var list =new Array();
+	for(var i=0;i<10;i++)
+	{
+		list[i]=new Array();
+		for(var j=0;j<10;j++)
+			list[i][j]=document.getElementById("div2");
+	}
+	var divm=document.getElementById("div1");
+
+	for(i=0;i<10;i++)
+	{
+		for(j=0;j<10;j++)
+			divm.appendChild(list[i][j]);alert(j);
+	}
+		}
+	my();
+
+	</script>
+
+
+
+</body>
+</html> 
