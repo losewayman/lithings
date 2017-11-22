@@ -7,20 +7,27 @@
     <script>
       function my()
       {
+        var a=1;
         var xmlhttp;
         if(window.XMLHttpRequest)
           xmlhttp=new XMLHttpRequest();
         else
           xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
         xmlhttp.onreadystatechange=function(){
+          
+          a++;
+          alert(a);
           if(xmlhttp.readyState==4 && xmlhttp.status==200)
           {
+            alert("m");
             document.getElementById("p1").innerHTML=xmlhttp.responseText;
           }
 
         }
+        alert(a);
         xmlhttp.open("GET","",true);
         xmlhttp.send();
+        alert("n");
       }
     </script>
     <p id="p1">123456789</p>
