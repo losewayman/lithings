@@ -21,7 +21,6 @@
 
         }
         xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origi", "*");
         xmlhttp.send();
       }
     </script>
@@ -29,3 +28,38 @@
     <input  type="button" value="提交" onclick="my()">
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    
+    function my()
+      {
+        var xmlhttp;
+        if(window.XMLHttpRequest)
+          xmlhttp=new XMLHttpRequest();
+        else
+          xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
+        xmlhttp.onreadystatechange=function(){
+
+          if(xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+            console.log(xmlhttp.response);
+          }
+
+        }
+        xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
+        xmlhttp.send();
+      }
+      my();
+
+      -->
