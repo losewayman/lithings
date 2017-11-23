@@ -9,45 +9,63 @@
 		width:500px;
 		height:500px;
 		background-color: #AAAAAA;
+		
 		z-index: -1;
 	}
-	#div2 {
-		float:left;
-		margin:0px;
-		width:48px;
-		height:48px;
-		border:1px solid black;
-	}
+	
 </style>
 
 </head>
 <body>
 	<div id="div1">
 	</div>
-	<div id="div2">
-	</div>
-
+	
 
 
 	<script>
-		function my(){
-			var list =new Array();
-	for(var i=0;i<10;i++)
-	{
-		list[i]=new Array();
-		for(var j=0;j<10;j++)
-			list[i][j]=document.getElementById("div2");
-	}
-	var divm=document.getElementById("div1");
-
-	for(i=0;i<10;i++)
-	{
-		for(j=0;j<10;j++)
-			divm.appendChild(list[i][j]);alert(j);
-	}
+		function div2()      //创建一个小方块模板
+		{
+			var div2=document.createElement("div");
+			div2.id="div2";
+			div2.style.float="left";
+			div2.style.margin="0px";
+		    div2.style.width="48px";
+			div2.style.height="48px";
+			div2.style.border="1px solid black";
+			return div2;	
 		}
-	my();
 
+		function pai()        //创建10*10方格
+		{
+			div2=div2();        //小方块
+			for(var i=0;i<10;i++)
+			{
+				for(var j=0;j<10;j++)
+				{
+					var divm=div2.cloneNode(false);
+					div1.appendChild(divm);
+				}
+			}
+			
+		}
+		function guo()        //随机出现的果子
+		{
+			var guozi=(Math.ceil(Math.random()*100));
+			var guozi=div1.childNodes[guozi];
+			guozi.style.backgroundColor="red";
+			return guozi;
+		}
+		function snake()
+		{
+			var guozi=guo();
+			var snake=div1.childNodes[45].style.backgroundColor="green";
+
+		}
+		var div1=document.getElementById("div1");
+		pai();
+		
+		
+		snake();
 	</script>
 
 
