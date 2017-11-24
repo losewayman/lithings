@@ -68,10 +68,23 @@
 					return snake;
 		}
 
+		function list(snakelist,snake)
+		{
+			var j=0;
+			
+				for(j;j<snakelist.length-1;j++)
+					snakelist[j]=snakelist[j+1];
+				snakelist[j+1]=snake;
+			
+		}
+
 		function direction(jian)
 		{
-			snakelist[i]=snake;
+			snakelist[0]=snake;
+			if(snakelist.length>1)
+			snakelist=list(snakelist,snake);
 			snake=bian(jian,snakelist[i]);
+			
 					if(snake==guozi)
 					{
 						guozi=guo();
@@ -82,8 +95,7 @@
 					else
 					{
 						
-						div1.childNodes[wei].style.backgroundColor="#AAAAAA";
-						wei=snake;
+						div1.childNodes[snakelist[0]].style.backgroundColor="#AAAAAA";
 					}
 
 					
