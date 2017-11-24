@@ -9,7 +9,6 @@
 		width:500px;
 		height:500px;
 		background-color: #AAAAAA;
-		
 		z-index: -1;
 	}
 	
@@ -48,24 +47,64 @@
 			}
 			
 		}
+
 		function guo()        //随机出现的果子
 		{
 			var guozi=(Math.ceil(Math.random()*100));
-			var guozi=div1.childNodes[guozi];
-			guozi.style.backgroundColor="red";
+			div1.childNodes[guozi].style.backgroundColor="red";
 			return guozi;
 		}
-		function snake()
-		{
-			var guozi=guo();
-			var snake=div1.childNodes[45].style.backgroundColor="green";
 
+		function bian(jian,snake)
+		{
+			switch(jian)
+					{
+						case 87: snake=snake-10; div1.childNodes[snake].style.backgroundColor="green"; break;                //W  上
+						case 65: snake=snake-1; div1.childNodes[snake].style.backgroundColor="green"; break;              //A  左
+						case 83: snake=snake+10; div1.childNodes[snake].style.backgroundColor="green"; break;              //S  下 
+						case 68: snake=snake+1; div1.childNodes[snake].style.backgroundColor="green"; break;            //D  右
+						default : break;
+					}
+					return snake;
 		}
+
+		function direction(jian)
+		{
+			var wei=snake;
+			snake=bian(jian,snake);	
+					if(snake==guozi)
+					{
+						guozi=guo();
+					}
+					else
+					{
+						div1.childNodes[wei].style.backgroundColor="#AAAAAA";
+						
+					}
+					
+		}
+
+		function snaker()
+		{
+			
+			var jian;
+			
+			div1.childNodes[45].style.backgroundColor="green";
+			document.onkeydown=function(event)
+			{
+				jian=event.keyCode;
+				direction(jian);
+			}
+		}
+
+
+
 		var div1=document.getElementById("div1");
 		pai();
-		
-		
-		snake();
+		var snake=45;
+		var guozi=guo();
+
+		snaker();
 	</script>
 
 
