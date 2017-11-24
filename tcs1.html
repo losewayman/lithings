@@ -70,16 +70,19 @@
 
 		function direction(jian)
 		{
-			snake=bian(jian,snake);
+			snakelist[i]=snake;
+			snake=bian(jian,snakelist[i]);
 					if(snake==guozi)
 					{
 						guozi=guo();
+						i++;
+						snakelist[i]=snake;
 
 					}
 					else
 					{
 						
-						//div1.childNodes[wei].style.backgroundColor="#AAAAAA";
+						div1.childNodes[wei].style.backgroundColor="#AAAAAA";
 						wei=snake;
 					}
 
