@@ -72,7 +72,7 @@
 		{
 			var j=0;
 			
-				for(j;j<snakelist.length-1;j++)
+				for(j;j<i;j++)
 					snakelist[j]=snakelist[j+1];
 				snakelist[j+1]=snake;
 			
@@ -80,15 +80,16 @@
 
 		function direction(jian)
 		{
+			if(i+1==1)
 			snakelist[0]=snake;
-			if(snakelist.length>1)
+			else
 			snakelist=list(snakelist,snake);
 			snake=bian(jian,snakelist[i]);
 			
 					if(snake==guozi)
 					{
 						guozi=guo();
-						i++;
+						i=i+1;
 						snakelist[i]=snake;
 
 					}
@@ -119,6 +120,7 @@
 		var i=0;
 		var snake=45,wei=45;
 		var snakelist=new Array();
+		snakelist[0]=snake;
 		var zhiling=new Array();
 		snaker();
 	</script>
