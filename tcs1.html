@@ -55,7 +55,7 @@
 			return guozi;
 		}
 
-		function bian(jian,snake)
+		function bian(jian,snake)    //计算下一节点，并改变颜色
 		{
 			switch(jian)
 					{
@@ -71,15 +71,15 @@
 		function direction(jian)
 		{
 		
-			snake=bian(jian,snakelist[i]);
+			snake=bian(jian,snakelist[i]);     //改变下一节点，并返回位置
 			
-					if(snake==guozi)
+					if(snake==guozi)      //如果下一节点是果子，创建新果子，蛇数组长度加一，并赋新位置
 					{
 						guozi=guo();
 						i=i+1;
 						snakelist[i]=snake;
 					}
-					else
+					else      //不是，删掉尾节点，各节点往前进一位
 					{	
 						div1.childNodes[snakelist[0]].style.backgroundColor="#D0D0D0";
 						if(i+1==1)
@@ -95,29 +95,35 @@
 							snakelist[i]=snake;
 						}
 					}
-				
+			jishi=setTimeout( function(){direction(jian);},500);     //重复调用，让蛇一直走
 					
 		}
 
-		function snaker()
+		function snaker()     
 		{
 
 			document.onkeydown=function(event)
 			{
+				
 				var jian=event.keyCode;
 				if(jian==87 || jian==68 ||  jian==83 || jian==65)
-				direction(jian);
+				{
+					clearTimeout(jishi);      //清除计时器影响
+					direction(jian);
+				}
+				
 			}
 		}
 
-		var div1=document.getElementById("div1");
-		pai();
-		div1.childNodes[45].style.backgroundColor="green";
-		var guozi=guo();
-		var i=0;
-		var snake=45;
-		var snakelist=new Array();
-		snakelist[0]=snake;
+		var jishi;     //计时变量
+		var div1=document.getElementById("div1");      //大框对象
+		pai();     //小框排列
+		div1.childNodes[45].style.backgroundColor="green";      //snake起点
+		var guozi=guo();    //初始果子位置
+		var i=0;     //蛇数组长度
+		var snake=45;     //蛇头结点
+		var snakelist=new Array();    //蛇数组
+		snakelist[0]=snake;    //蛇数组初值
 		snaker();
 	</script>
 
