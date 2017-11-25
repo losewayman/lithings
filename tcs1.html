@@ -8,7 +8,7 @@
 		margin:0px;
 		width:500px;
 		height:500px;
-		background-color: #AAAAAA;
+		background-color: #D0D0D0;
 		z-index: -1;
 	}
 	
@@ -68,22 +68,9 @@
 					return snake;
 		}
 
-		function list(snakelist,snake)
-		{
-			var j=0;
-			
-				for(j;j<i;j++)
-					snakelist[j]=snakelist[j+1];
-				snakelist[j+1]=snake;
-			
-		}
-
 		function direction(jian)
 		{
-			if(i+1==1)
-			snakelist[0]=snake;
-			else
-			snakelist=list(snakelist,snake);
+		
 			snake=bian(jian,snakelist[i]);
 			
 					if(snake==guozi)
@@ -91,37 +78,46 @@
 						guozi=guo();
 						i=i+1;
 						snakelist[i]=snake;
-
 					}
 					else
-					{
-						
-						div1.childNodes[snakelist[0]].style.backgroundColor="#AAAAAA";
+					{	
+						div1.childNodes[snakelist[0]].style.backgroundColor="#D0D0D0";
+						if(i+1==1)
+						{
+							snakelist[0]=snake;
+						}
+						else
+						{
+							for(var k=0;k<i;k++)
+							{
+								snakelist[k]=snakelist[k+1];
+							}
+							snakelist[i]=snake;
+						}
 					}
-
+				
 					
 		}
 
 		function snaker()
 		{
+
 			document.onkeydown=function(event)
 			{
 				var jian=event.keyCode;
+				if(jian==87 || jian==68 ||  jian==83 || jian==65)
 				direction(jian);
 			}
 		}
 
-
-
 		var div1=document.getElementById("div1");
 		pai();
-		var guozi=guo();
 		div1.childNodes[45].style.backgroundColor="green";
+		var guozi=guo();
 		var i=0;
-		var snake=45,wei=45;
+		var snake=45;
 		var snakelist=new Array();
 		snakelist[0]=snake;
-		var zhiling=new Array();
 		snaker();
 	</script>
 
