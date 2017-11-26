@@ -18,11 +18,8 @@
 <body>
 	<div id="div1">
 	</div>
-	
-
-
 	<script>
-		function div2()      //创建一个小方块模板
+		function divs()      //创建一个小方块模板
 		{
 			var div2=document.createElement("div");
 			div2.id="div2";
@@ -36,23 +33,29 @@
 
 		function pai()        //创建10*10方格
 		{
-			div2=div2();        //小方块
-			for(var i=0;i<10;i++)
-			{
-				for(var j=0;j<10;j++)
+			var div2;
+			div2=divs();        //小方块
+				for(var j=0;j<100;j++)
 				{
 					var divm=div2.cloneNode(false);
 					div1.appendChild(divm);
 				}
-			}
-			
 		}
 
 		function guo()        //随机出现的果子
 		{
 			var guozi=(Math.ceil(Math.random()*100));
-			div1.childNodes[guozi].style.backgroundColor="red";
-			return guozi;
+			for(var k=0;k<snakelist.length;k++)
+
+			{
+				if(guozi==snakelist[k])
+					return guo();
+			}
+		
+				div1.childNodes[guozi].style.backgroundColor="red";
+				return guozi;
+			
+			
 		}
 
 		function bian(jian,snake)    //计算下一节点，并改变颜色
@@ -95,39 +98,34 @@
 							snakelist[i]=snake;
 						}
 					}
-			jishi=setTimeout( function(){direction(jian);},500);     //重复调用，让蛇一直走
-					
+			jishi=setTimeout( function(){direction(jian);},500);     //重复调用，让蛇一直走		
 		}
 
 		function snaker()     
 		{
-
 			document.onkeydown=function(event)
-			{
-				
+			{	
 				var jian=event.keyCode;
 				if(jian==87 || jian==68 ||  jian==83 || jian==65)
 				{
 					clearTimeout(jishi);      //清除计时器影响
 					direction(jian);
-				}
-				
+				}	
 			}
 		}
 
 		var jishi;     //计时变量
 		var div1=document.getElementById("div1");      //大框对象
 		pai();     //小框排列
-		div1.childNodes[45].style.backgroundColor="green";      //snake起点
-		var guozi=guo();    //初始果子位置
+
 		var i=0;     //蛇数组长度
 		var snake=45;     //蛇头结点
 		var snakelist=new Array();    //蛇数组
 		snakelist[0]=snake;    //蛇数组初值
+		div1.childNodes[45].style.backgroundColor="green";      //snake起点
+		var guozi=guo();    //初始果子位置
+		
 		snaker();
 	</script>
-
-
-
 </body>
 </html> 
