@@ -82,7 +82,10 @@
 						i=i+1;
 						snakelist[i]=snake;
 					}
-					else      //不是，删掉尾节点，各节点往前进一位
+					
+					
+
+					 else   //不是，删掉尾节点，各节点往前进一位
 					{	
 						div1.childNodes[snakelist[0]].style.backgroundColor="#D0D0D0";
 						if(i+1==1)
@@ -97,7 +100,9 @@
 							}
 							snakelist[i]=snake;
 						}
+					
 					}
+
 			jishi=setTimeout( function(){direction(jian);},500);     //重复调用，让蛇一直走		
 		}
 
