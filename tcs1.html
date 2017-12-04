@@ -58,14 +58,29 @@
 			
 		}
 
+		function gameover(hh,ss)
+		{
+			for(var k=-9;k<=0;k++)
+				if(ss==k)
+				alert("GAMEOVER");
+			for(var k=101;k<=110;k++)
+				if(ss==k)
+				alert("GAMEOVER");
+			if(hh%10==0&&ss%10==1)
+				alert("GAMEOVER");
+			if(hh%10==1&&ss%10==0)
+				alert("GAMEOVER");
+		}
+
 		function bian(jian,snake)    //计算下一节点，并改变颜色
 		{
+			var h=snake;
 			switch(jian)
 					{
-						case 87: snake=snake-10; div1.childNodes[snake].style.backgroundColor="green"; break;                //W  上
-						case 65: snake=snake-1; div1.childNodes[snake].style.backgroundColor="green"; break;              //A  左
-						case 83: snake=snake+10; div1.childNodes[snake].style.backgroundColor="green"; break;              //S  下 
-						case 68: snake=snake+1; div1.childNodes[snake].style.backgroundColor="green"; break;            //D  右
+						case 87: snake=snake-10; gameover(h,snake); div1.childNodes[snake].style.backgroundColor="green"; break;                //W  上
+						case 65: snake=snake-1; gameover(h,snake); div1.childNodes[snake].style.backgroundColor="green"; break;              //A  左
+						case 83: snake=snake+10; gameover(h,snake); div1.childNodes[snake].style.backgroundColor="green"; break;              //S  下 
+						case 68: snake=snake+1; gameover(h,snake); div1.childNodes[snake].style.backgroundColor="green"; break;            //D  右
 						default : break;
 					}
 					return snake;
