@@ -35,7 +35,7 @@
 <body>
 	<p id ="p1">添加</p>
 	<ul id="ul1">
-		<li id="li1"><input type="text"> <p id="p2" class="pp">删除</p></li>
+		<li id="li1"><input type="text"> <p id="p2" class="pp" onclick="dele(liss.length);">删除</p></li>
 
 	</ul>
 	
@@ -44,6 +44,9 @@
 		var tr1 = document.getElementById("li1");
 		var adds = document.getElementById("p1");
 		var lis=ul1.getElementsByTagName("input");
+		var ps=ul1.getElementsByTagName("p");
+		var liss=ul1.getElementsByTagName("li");
+
 		function yanse(){
 			for(var a=0;a<lis.length;a++)
 		{
@@ -61,29 +64,25 @@
 		}
 		}
 		function add() {
-			var newli =document.createElement("li");
-			var newinput =document.createElement("input");
-			var p =document.createElement("p");
-			p.className="pp";
-			var de=document.createTextNode("删除");
-			p.appendChild(de);
-			ul1.appendChild(p);
-			newli.appendChild(newinput);
-			ul1.appendChild(newli);
-
-
-
-
+			var newli =document.createElement("li");     //行
+			var newinput =document.createElement("input");     //文本框
+			var pa =document.createElement("p");      //p节点
+			pa.className="pp";     //p.class
+			pa.setAttribute("onclick","dele(liss.length);");
+			var de=document.createTextNode("删除");   //文本
+			pa.appendChild(de);     //文本放入p节点
+			newli.appendChild(pa);    //p节点放入
+			newli.appendChild(newinput);     //文本框放入行
+			ul1.appendChild(newli);    //行放入
 
 			yanse();
 		}
 
 		yanse();
-
 		adds.onclick=function(){add();}
-		ps.onclick=function(){
-			ul1.removeChild(ps.parentNode);
-		}
+		function dele(m){
+			ul1.removeChild(liss[m-1]);
+			}
 	
 	</script>
 </body>
