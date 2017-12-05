@@ -7,6 +7,8 @@
     <script>
       function my()
       {
+
+        //http://blog.youngchou.cn:8099/show
         var xmlhttp;
         if(window.XMLHttpRequest)
           xmlhttp=new XMLHttpRequest();
@@ -14,11 +16,10 @@
           xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
         xmlhttp.onreadystatechange=function(){
 
-          if(xmlhttp.readyState==4 && xmlhttp.status==200)
+          if(xmlhttp.readyState==4 && xmlhttp.status==200)  
           {
-            document.getElementById("p1").innerHTML=xmlhttp.responseText;
-          }
-
+            console.log(xmlhttp.response);
+          } 
         }
         xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
         xmlhttp.send();

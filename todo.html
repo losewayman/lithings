@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TO DO LIST</title>
+	<style>
+	body {
+		margin: 0px;
+		background-color:#F5F5DC;
+	}
+	#div1 {
+		width:80%;
+		height:660px;
+		background-color:green;
+		margin:20px 10%;
+		border:2px solid #FF8C00;
+	}
+	#div1_1 {
+		display:inline-block;
+		width:48%;
+		height:620px;
+		background-color:#FAFAD2;
+		margin:18px 10px;
+		border:2px solid black;
+	}
+	#div1_2 {
+	display:inline-block;
+	float:right;
+	width:48%;
+	height:620px;
+	background-color:#FAFAD2;
+	margin:18px 10px;
+	border:2px solid black;
+	}
+	#text1 {
+	margin:4px;
+	padding:20px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    width:540px;
+    height:300px;
+    resize:none;
+    background-color:#FAFAD2;
+	}
+	#div1_1_1 {
+		margin: 0px 2px;
+		display:inline-block;
+		width:300px;
+		height:618px;
+		background-color:#FAFAD2;
+		border-right:2px solid black;
+
+	}
+	#div1_1_2 {
+		margin:0px 2px;
+		display:inline-block;
+		float:right;
+		width:270px;
+		height:618px;
+		background-color:#FAFAD2;
+		
+	}
+	#div1_1_1 h2 {
+		margin:0px;
+		text-align:center;
+		border-bottom: 1px solid black;
+	}
+	#div1_1_2 h2 {
+		margin:0px;
+		text-align:center;
+		border-bottom: 1px solid black;
+	}
+	#div1_1_1_1{
+		width:300px;
+		height:580px;
+	    border: 1px solid black;
+	}
+	#div1_1_2_1{
+		width:270px;
+		height:580px;
+	    border: 1px solid black;
+	}
+</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div1_1">
+			<div id="div1_1_1"><h2 >未完成</h2>
+				<div id="div1_1_1_1">
+					<ul id="ul1">
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<div id="div1_1_2"><h2 >已完成</h2>
+				<div id="div1_1_2_1">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="div1_2">
+			<form id="form1" action="" method="" onsubmit="tijiao();">
+			<textarea id="text1" rows="20" cols="30" ></textarea>
+			<input type="submit" value="提交">
+
+		</form>
+		<script>
+
+			var form1=document.getElementById("text1");
+			var ul1=document.getElementById("ul1");
+			var lis=ul1.getElementsByTagName("li");
+			var a;
+
+			function tijiao(){
+
+			
+				lis[lis.length-1].innerHTML=form1.value;
+			}
+		</script>
+		</div>
+	</div>
+</body>
+</html>
