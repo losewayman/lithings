@@ -49,17 +49,17 @@
         if(window.XMLHttpRequest)
           xmlhttp=new XMLHttpRequest();
         else
-          xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
+          xmlhttp=new ActiveXobject("microsoft.XMLHTTP");xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
+        xmlhttp.send();
         xmlhttp.onreadystatechange=function(){
 
           if(xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-            console.log(xmlhttp.response);
+          {var k=JSON.parse(xmlhttp.response);
+            console.log(k.text);
           }
 
         }
-        xmlhttp.open("POST","http://blog.youngchou.cn:8099/show",true);
-        xmlhttp.send();
+        
       }
       my();
 
