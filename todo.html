@@ -95,12 +95,17 @@
 	#div1_1_1_1{
 		width:100%;
 		height:520px;
+		overflow:auto;
 	    
+	}
+	#div1_1_1_1 li {
+		overflow:hidden;
+		margin: 0px 10px;text-overflow:ellipsis;
 	}
 	#div1_1_2_1{
 		width:100%;
 		height:520px;
-	   
+	    overflow:auto;
 	}
 
 
@@ -127,7 +132,7 @@
 			<div id="div1_1_1"><h2 >未完成</h2>
 				<div id="div1_1_1_1">
 					<ul id="ul1">
-						<li>123</li>
+		
 					</ul>
 				</div>
 			</div>
@@ -152,13 +157,31 @@
 			var ul1=document.getElementById("ul1");
 			var ul2=document.getElementById("ul2");
 			var lis=ul1.getElementsByTagName("li");
-			lis[0].setAttribute("onclick","bian();");
+			request();
 
-function bian(){
-	form1.value=lis[0].innerHTML;
-}
+			function show(thiss){
+				form1.innerHTML=thiss.innerHTML;
+			}
 
-			function request()
+            function request(){
+				var text=JSON.parse("[{\"model\": \"todolist.todo\", \"pk\": 5, \"fields\": {\"todo\": \"gyhttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttrf\", \"flag\": \"1\", \"pubtime\": \"2017-12-05T13:35:10.563Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 8, \"fields\": {\"todo\": \"few\", \"flag\": \"0\", \"pubtime\": \"2017-12-06T06:20:31.822Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 13, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:11:08.647Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 14, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:14:55.434Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 22, \"fields\": {\"todo\": \"sqd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:57:51.095Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 25, \"fields\": {\"todo\": \"das\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T15:34:14.195Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 27, \"fields\": {\"todo\": \"qwferw\", \"flag\": \"0\", \"pubtime\": \"2017-12-11T11:14:25.023Z\", \"tag\": \"5\"}}]"
+            );
+				console.log(text);
+			for(var k=0;k<text.length;k++)
+          				{
+          					var newli=document.createElement("li");
+          					newli.setAttribute("onclick","show(this);");
+          					var newtext=document.createTextNode(text[k].fields.todo);  //内容属性
+          					newli.appendChild(newtext);
+          					if(text[k].fields.flag==1)      //验证属性
+          						ul1.appendChild(newli);
+          					else if(text[k].fields.flag==0)
+          						ul2.appendChild(newli);
+          				}
+          			}
+
+          					
+		/*	function request()
 			{
 				var xmlhttp;
         		if(window.XMLHttpRequest)
@@ -168,17 +191,18 @@ function bian(){
 
           		xmlhttp.onreadystatechange=function()
           		{
-          			if(xmlreadyState==4 && xml.status==200)
+          			if(xmlhttp.readyState==4 && xmlhttp.status==200)
           			{
           				var txet=JSON.parse(xmlhttp.responseText);
-          				var newli=document.createElemnet("li");
+          				
           				for(var k=0;k<text.length;k++)
           				{
-          					var newtext=document.createTextNode(text[k].neirong);  //内容属性
+          					var newli=document.createElement("li");
+          					var newtext=document.createTextNode(text[k].fields.todo);  //内容属性
           					newli.appendChild(newtext);
-          					if(text.yanzheng==1)      //验证属性
+          					if(text[k].fields.flag==1)      //验证属性
           						ul1.appendChild(newli);
-          					else if(text.yanzheng==0)
+          					else if(text[k].fields.flag==0)
           						ul2.appendChild(newli);
           				}
           			}
@@ -189,10 +213,10 @@ function bian(){
                 xmlhttp.send();
 			}
 
-		
+		*/
 		</script>
 		</div>
 	</div>
 
 </body>
-</html>
+</html>			
