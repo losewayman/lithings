@@ -147,7 +147,7 @@
 	    
 		<div id="div1_2">
 			<form id="form1" action="" method="POST" >
-			<textarea id="text1" rows="20" cols="30" name="username"></textarea>
+			<textarea id="text1" rows="20" cols="30" name="username" placeholder="写..."></textarea>
 			<input type="submit" value="提交">
 
 		</form>
@@ -163,7 +163,28 @@
 				form1.innerHTML=thiss.innerHTML;
 			}
 
-            function request(){
+
+			function tai(){
+				var xmlhttp;
+        		if(window.XMLHttpRequest)
+          			xmlhttp=new XMLHttpRequest();
+        		else
+          			xmlhttp=new ActiveXobject("microsoft.XMLHTTP");
+          		var data={"username":"汤姆","password":"123"}
+          		var th=JSON.stringify(data);
+          		xmlhttp.onreadystatechange=function()
+          		{
+          			if(xmlhttp.readyState==4 && xmlhttp.status==200)
+          				{
+
+          				}
+          		}
+          		xmlhttp.open("POST","",true);
+          		xmlhttp.setRequestHeader("Content-type","application/json;charset=UTF-8");
+                xmlhttp.send(data);
+			}
+
+         /*   function request(){
 				var text=JSON.parse("[{\"model\": \"todolist.todo\", \"pk\": 5, \"fields\": {\"todo\": \"gyhttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttrf\", \"flag\": \"1\", \"pubtime\": \"2017-12-05T13:35:10.563Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 8, \"fields\": {\"todo\": \"few\", \"flag\": \"0\", \"pubtime\": \"2017-12-06T06:20:31.822Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 13, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:11:08.647Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 14, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:14:55.434Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 22, \"fields\": {\"todo\": \"sqd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:57:51.095Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 25, \"fields\": {\"todo\": \"das\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T15:34:14.195Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 27, \"fields\": {\"todo\": \"qwferw\", \"flag\": \"0\", \"pubtime\": \"2017-12-11T11:14:25.023Z\", \"tag\": \"5\"}}]"
             );
 				console.log(text);
@@ -179,7 +200,7 @@
           						ul2.appendChild(newli);
           				}
           			}
-
+          */
           					
 		/*	function request()
 			{
@@ -212,6 +233,11 @@
           		xmlhttp.open("POST","",true);
                 xmlhttp.send();
 			}
+		*/
+		
+
+		/*
+		"[{\"model\": \"todolist.todo\", \"pk\": 5, \"fields\": {\"todo\": \"gyhrf\", \"flag\": \"1\", \"pubtime\": \"2017-12-05T13:35:10.563Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 8, \"fields\": {\"todo\": \"few\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T06:20:31.822Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 13, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:11:08.647Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 14, \"fields\": {\"todo\": \"dwedd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:14:55.434Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 22, \"fields\": {\"todo\": \"sqd\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T11:57:51.095Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 25, \"fields\": {\"todo\": \"das\", \"flag\": \"1\", \"pubtime\": \"2017-12-06T15:34:14.195Z\", \"tag\": null}}, {\"model\": \"todolist.todo\", \"pk\": 27, \"fields\": {\"todo\": \"qwferw\", \"flag\": \"0\", \"pubtime\": \"2017-12-11T11:14:25.023Z\", \"tag\": \"5\"}}]"
 
 		*/
 		</script>

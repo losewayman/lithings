@@ -12,7 +12,7 @@
 		border:2px solid red;
 		
 	}
-	.black0 {
+	.block0 {
 		width:71px;
 		height:71px;
 		float:left;
@@ -20,32 +20,423 @@
 		border:2px solid red;
 		border-radius: 15px;
 	}
+	.block2 {
+		background-image:url(D:\\图片\\2048\\QQ图片2.png);
+		background-size: 71px 71px;
+	}
+	.block4 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212202728.png);
+		background-size: 71px 71px;
+	}
+	.block8 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212202954.png);
+		background-size: 71px 71px;
+	}
+	.block16 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203313.png);
+		background-size: 71px 71px;
+	}
+	.block32 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203316.png);
+		background-size: 71px 71px;
+	}
+	.block64 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203328.png);
+		background-size: 71px 71px;
+	}
+	.block128 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203331.png);
+		background-size: 71px 71px;
+	}
+	.block256 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203335.png);
+		background-size: 71px 71px;
+	}
+	.block512 {
+		background-image:url(D:\\图片\\2048\\QQ图片20171212203339.png);
+		background-size: 71px 71px;
+	}
+	.block1024 {
+		background-image:url(D:\\图片\\2048\\QQ图片2017121220295481024.png);
+		background-size: 71px 71px;
+	}
     </style>
 </head>
 <body>
 	<div id="div1">
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-
-	    <div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
-		<div class="black0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+	    <div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
+		<div class="block0"></div>
 	</div>
 	<script>
-		
+		var blocks=document.getElementById("div1").childNodes;
+		console.log(blocks.length);
+		function price(){
+			
+			for(var k=1;k<=31;k=k+2)
+			blocks[k].setAttribute("price","0");
+		}
+		price();
+
+
+		var ww=new Array();
+		var ss=new Array();
+		var aa=new Array();
+		var dd=new Array();
+		function shuzu(){
+
+			for(var k=1;k<=16;k++)
+			{
+				ww[k]=blocks[k*2-1];
+			}
+			for(var k=1;k<=16;k++)
+			{
+				ss[k]=ww[17-k];
+			}
+			var h=1;
+			for(var k=1;k<=4;k++)
+			{
+				
+				for(var l=k;l<=16;l=l+4)
+				{
+					aa[h]=ww[l];
+					h++;
+				}
+			}
+			var b=1;
+			for(var k=4;k>=1;k--)
+			{
+				
+				for(var l=k;l<=16;l=l+4)
+				{
+					dd[b]=ww[l];
+					b++;
+				}
+			}
+		}
+		shuzu();
+
+
+		function appear(){
+			var suiji=(Math.ceil(Math.random()*16))*2-1;
+			if(blocks[suiji].getAttribute("price")!=0)
+			{
+				appear();
+			}
+			else {
+				var g=Math.ceil(Math.random()*10);
+				if(g>0&&g<=5)
+				{
+					blocks[suiji].className="block0 block2";
+			        blocks[suiji].setAttribute("price","2");
+				}
+				else
+				{
+				    blocks[suiji].className="block0 block4";
+			        blocks[suiji].setAttribute("price","4");
+				}
+				
+			}
+			
+		}
+		appear();
+
+		function move(jian){
+			switch(jian)
+			{
+				case 87: allw(); allww(); allw(); appear(); break;
+				case 68: alld(); alldd(); alld(); appear(); break;
+				case 83: alls(); allss(); alls(); appear(); break;
+				case 65: alla(); allaa(); alla(); appear(); break;
+				default:break;
+			}
+		}
+
+		function prices(guo,dui)
+		{
+			if(guo=="2")
+				dui.setAttribute("price","2");
+			if(guo=="4")
+				dui.setAttribute("price","4");
+			if(guo=="8")
+				dui.setAttribute("price","8");
+			if(guo=="16")
+				dui.setAttribute("price","16");
+			if(guo=="32")
+				dui.setAttribute("price","32");
+			if(guo=="64")
+				dui.setAttribute("price","64");
+			if(guo=="128")
+				dui.setAttribute("price","128");
+			if(guo=="256")
+				dui.setAttribute("price","256");
+			if(guo=="521")
+				dui.setAttribute("price","521");
+			if(guo=="1024")
+				dui.setAttribute("price","1024");
+		}
+
+		function pricess(guo,dui)
+		{
+			if(guo=="2")
+			{
+				dui.setAttribute("price","4");
+			    dui.className="block0 block4";
+			}
+				
+			if(guo=="4")
+			{
+				dui.setAttribute("price","8");
+				dui.className="block0 block8";
+			}
+
+			if(guo=="8")
+			{
+				dui.setAttribute("price","16");
+				dui.className="block0 block16";
+			}
+			if(guo=="16")
+			{
+				dui.setAttribute("price","32");
+				dui.className="block0 block32";
+			}
+			if(guo=="32")
+			{
+				dui.setAttribute("price","64");
+				dui.className="block0 block64";
+			}
+			if(guo=="64")
+			{
+				dui.setAttribute("price","128");
+				dui.className="block0 block128";
+			}
+			if(guo=="128")
+			{
+				dui.setAttribute("price","256");
+				dui.className="block0 block256";
+			}
+			if(guo=="256")
+			{
+				dui.setAttribute("price","521");
+				dui.className="block0 block521";
+			}
+			if(guo=="521")
+			{
+				dui.setAttribute("price","1024");
+				dui.className="block0 block1024";
+			}
+			if(guo=="1024")
+			{
+				dui.setAttribute("price","2048");
+				dui.className="block0 block2048";
+			}
+		}
+
+
+		function allw()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(ww[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(ww[m].getAttribute("price")=="0")
+						{
+							ww[m].className=ww[k].className;
+							ww[k].className="block0";
+							var d=ww[k].getAttribute("price");
+							prices(d,ww[m]);
+							ww[k].setAttribute("price","0");
+							allw(-4);
+						}
+					}
+				}
+			}
+			
+		}
+		function allww()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(ww[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(ww[m].getAttribute("price")==ww[k].getAttribute("price"))
+						{
+
+							var d=ww[k].getAttribute("price");
+							pricess(d,ww[m]);
+							ww[k].className="block0";
+							ww[k].setAttribute("price","0");
+						}
+					}
+				}
+			}
+		}
+
+		function alls()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(ss[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(ss[m].getAttribute("price")=="0")
+						{
+							ss[m].className=ss[k].className;
+							ss[k].className="block0";
+							var d=ss[k].getAttribute("price");
+							prices(d,ss[m]);
+							ss[k].setAttribute("price","0");
+							alls(-4);
+						}
+					}
+				}
+			}
+			
+		}
+		function allss()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(ss[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(ss[m].getAttribute("price")==ss[k].getAttribute("price"))
+						{
+
+							var d=ss[k].getAttribute("price");
+							pricess(d,ss[m]);
+							ss[k].className="block0";
+							ss[k].setAttribute("price","0");
+						}
+					}
+				}
+			}
+		}
+
+		function alla()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(aa[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(aa[m].getAttribute("price")=="0")
+						{
+							aa[m].className=aa[k].className;
+							aa[k].className="block0";
+							var d=aa[k].getAttribute("price");
+							prices(d,aa[m]);
+							aa[k].setAttribute("price","0");
+							alla(-4);
+						}
+					}
+				}
+			}
+			
+		}
+		function allaa()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(aa[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(aa[m].getAttribute("price")==aa[k].getAttribute("price"))
+						{
+
+							var d=aa[k].getAttribute("price");
+							pricess(d,aa[m]);
+							aa[k].className="block0";
+							aa[k].setAttribute("price","0");
+						}
+					}
+				}
+			}
+		}
+
+		function alld()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(dd[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(dd[m].getAttribute("price")=="0")
+						{
+							dd[m].className=dd[k].className;
+							dd[k].className="block0";
+							var d=dd[k].getAttribute("price");
+							prices(d,dd[m]);
+							dd[k].setAttribute("price","0");
+							alld(-4);
+						}
+					}
+				}
+			}
+			
+		}
+		function alldd()
+		{
+			for(var k=1;k<=16;k++)
+			{
+				if(dd[k].getAttribute("price")!="0")
+				{
+					var m=k-4;
+					if(m>=1&&m<=16)
+					{
+						if(dd[m].getAttribute("price")==dd[k].getAttribute("price"))
+						{
+
+							var d=dd[k].getAttribute("price");
+							pricess(d,dd[m]);
+							dd[k].className="block0";
+							dd[k].setAttribute("price","0");
+						}
+					}
+				}
+			}
+		}
+
+		function click(){
+			document.onkeydown=function(event)
+			{	
+				var jian=event.keyCode;
+				if(jian==87 || jian==68 ||  jian==83 || jian==65)
+				{
+					move(jian);
+				}	
+			}
+		}
+		click();
 	</script>
 </body>
 </html>
