@@ -8,16 +8,16 @@
 		width:300px;
 		height:300px;
 		margin:10px auto 10px 10px;
-		background-color:red;
-		border:2px solid red;
+		background-color:#483D8B;
+		border:2px solid #483D8B;
 		
 	}
 	.block0 {
 		width:71px;
 		height:71px;
 		float:left;
-		background-color:green;
-		border:2px solid red;
+		background-color:#90EE90;
+		border:2px solid #483D8B;
 		border-radius: 15px;
 	}
 	.block2 {
@@ -82,8 +82,10 @@
 		<div class="block0"></div>
 	</div>
 	<script>
+
+
+
 		var blocks=document.getElementById("div1").childNodes;
-		console.log(blocks.length);
 		function price(){
 			
 			for(var k=1;k<=31;k=k+2)
@@ -154,13 +156,27 @@
 		}
 		appear();
 
+		function over(){
+			var m=0;
+			for(var k=1;k<=16;k++)
+			{
+				if(ww[k].getAttribute("price")=="0")
+					m++;
+			}
+			if(m==0)
+				{
+					alert("GAMEOVER");
+					window.location.reload();
+				}
+		}
+
 		function move(jian){
 			switch(jian)
 			{
-				case 87: allw(); allww(); allw(); appear(); break;
-				case 68: alld(); alldd(); alld(); appear(); break;
-				case 83: alls(); allss(); alls(); appear(); break;
-				case 65: alla(); allaa(); alla(); appear(); break;
+				case 87: allw(); allww(); allw(); over(); appear(); break;
+				case 68: alld(); alldd(); alld(); over(); appear(); break;
+				case 83: alls(); allss(); alls(); over(); appear(); break;
+				case 65: alla(); allaa(); alla(); over(); appear(); break;
 				default:break;
 			}
 		}
