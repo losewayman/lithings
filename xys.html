@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf=8">
+	<title> 响应式</title> 
+	<style>
+	body
+	{
+		background: #000;
+		margin:0px;
+		color: #464646;
+        padding-top: 28px;
+    }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+    }
+    header{
+    	width:1200px;
+    	margin:10px auto;
+    }
+    header nav {
+    	background: #663;
+    	height:50px;
+    	text-align: center;
+    	border-radius: 5px;
+    }
+    header nav ul li{
+    	display:inline-block;
+    	width:280px;
+    	color:white;
+    	line-height: 50px;
+    	
+    }
+    #div1 {
+    	width:1200px;
+    	margin:10px auto;
+    	overflow:hidden;
+    }
+    #div1 article {
+    	width:800px;
+    	margin-bottom:10px;
+    	float:left;
+    	background:#FFF5EE;
+    	padding:0px 10px;
+    	border-radius: 10px;
+    	line-height: 180%;
+    }
+    #div1 article figure{
+    	text-align: center;
+    	
+    }
+    #div1 article section p{
+    	text-indent: 2em;
+    }
+    #div1 article section img{
+    	margin:10px;
+    	width:300px;
+    	height:auto;
+    	float:right;
+    	box-shadow: 0px 5px 5px black;
+    }
+    #div1 aside{
+    	float:right;
+    	width:350px;padding:0px;
+    }
+    #div1 aside article{
+    	line-height: 150%;
+    	width:330px;
+    	background-color: #FFF5EE;
+    	border-radius: 5px;
+    	padding:0px 10px;
+    	margin-bottom: 10px;
+
+    }
+     #div1 aside article p{
+     	 text-indent: 0px;
+     }
+     footer {
+    	background: #669;
+    	width: 1200px;
+    	margin: 10px auto;
+    	color: #fff;
+    	height: 50px;
+    	text-align: center;
+    	border-radius: 5px;
+    }
+    footer em{
+    	padding: 0px 20px;
+    	line-height:50px;
+    }
+
+
+    @media screen and (max-width:980px){
+    	header{
+    		width:100%;
+    	}
+    	header nav{
+    		background: none;
+    		width:100%;
+    		height:auto;
+    		text-align:center;
+    	}
+    	header h1{
+    		text-align:center;
+    		padding-left:40px;
+    	}
+    	header nav ul li{
+    		background-color: #663;
+    		width:20%;
+    		border-radius: 5px;
+    		height:50px;
+
+    	}
+    	#div1{
+    		margin:10px auto;
+    		width:100%;
+    	}
+    	#div1 article{
+    		width:100%;
+
+    	}
+    }
+
+</style>
+</head>
+<body>
+	<header>
+		<h1>喧嚣的风</h1>
+		<nav>
+			<ul>
+				<li>主页</li>
+				<li>空间</li>
+				<li>收藏</li>
+				<li>游戏</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="div1">
+		<article>
+			<h1>动漫资讯</h1>
+			<figure>
+				<figcaption><h3>《罪恶王冠》</h3></figcaption>
+			</figure>
+			<section>
+				<h4>剧情简介</h4>
+				<img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=c6ab5885c6fc1e17e9b284632bf99d66/9213b07eca80653889d54b809edda144ad348262.jpg">
+				<p>《罪恶王冠》是Production I.G制作的一部以超能力战斗为题材的原创动画，在2011年7月号的《Newtype》月刊杂志上公布了原创动画的制作企划。动画于2011年10月13日起在富士电视台播出，全22话。</p>
+				<p>2029年，日本因突然爆发的”ApocalypseVirus（天启病毒）“的蔓延而陷入了混乱之中。处于无政府状态的日本，受到了由超国家之间所组织成的名为“GHQ”的组织的武力介入并接受其统治，东京的六本木更成为被封锁的地区。之后又以名为“lost christmas（失落的圣诞）”的事件为契机，日本失去了独立国家的实质权力，并被赋予了表面上的自治权，由此人们开始享受短暂的和平。</p>
+				<p>时光流逝，10年后的2039年。少年樱满集怀抱着抑郁的心境，并对世间冷眼相待。樱满集是在天王州第一高校就读的高中二年生，与同学们保持着一定距离的同时，度过着闲散而又平静的日子。</p>
+				<p>然而集安稳的日常在某一天突然宣告结束。那天放学后，在自己中意的老地方和一名少女不期而遇。少女名为楪祈。她正是集所憧憬，并在网上有着巨大影响力的歌手。而她也有不为人知的一面。祈正是由17岁青少年恙神涯所率领的“葬仪社”——一个在被封锁的城市中歌颂着从”GHQ“手中得到”日本的解放“而赌上性命不断孤独地战斗着的抵抗组织——的成员之一。</p>
+				<p>集在祈与涯引导之下，与葬仪社而发生了关联。尔后因为关系紧迫获被女主使用了虚空基因组，他的右手上出现了“王之刻印”。通过刻印，集可以自在地从人的身体里抽取出名为“void（虚空）”的物质，并以借此为武器得到战斗的力量。然而这也仅仅是，他所背负的“罪之王冠”的物语的开幕罢了……</p>
+			</section>
+		</article>
+
+		<aside>
+			<article>
+				<h5>樱满集（おうま しゅう/ OUMA SHU）</h5>
+				<section>
+					<p>配音：梶裕贵<br>17岁。天王洲第一高校2年A组，现代映像研究同好会成员，在遇见了祈后的意外事件中右手获得了“王的能力”。</p>
+				</section>
+			</article>
+			<article>
+				<h5>恙神涯（つつがみ がい/ TSUTSUGAMI GAI）</h5>
+				<section>
+					<p>配音：中村悠一<br>17岁。率领着反抗组织“葬仪社”的年轻首领，引导着集的“王的能力”并以革命的成功为目标。</p>
+				</section>
+			</article>
+			<article>
+				<h5>楪祈（ゆずりは いのり/ YUZURIHA INORI先译INORY）</h5>
+				<section>
+					<p>配音：茅野爱衣、chelly<br>16岁。网络偶像egoist乐队的主唱，同时也是葬仪社的一员。因为楪祈，集和葬仪社有了关联。会通过歌唱去释放自己的感情。</p>
+				</section>
+			</article>
+			<article>
+				<h5>筱宫绫濑（しのみや あやせ/ SHINOMIYA AYASE）</h5>
+				<section>
+					<p>配音：花泽香菜<br>17岁。葬仪社的一员，人形机器人End Rave的驾驶者，平日里靠轮椅行走。</p>
+				</section>
+			</article>
+			<article>
+				<h5>鸫（ツグミ/ TSUGUMI）</h5>
+				<section>
+					<p>配音：配音：竹达彩奈<br>14岁。葬仪社获取情报的人员，对作为领导人的涯也不用敬语的少女。口头禅是“Aye：了解”以及“Nay：否定”。</p>
+				</section>
+			</article>
+		</aside>
+    </div>
+    <footer><em>关于站长之家</em> <em>联系我们(电话)</em> <em>广告服务</em> <em>友情链接</em> <em>网站地图</em> <em>版权声明</em> <em>人才招聘</em></footer>
+</body>
+</html>
