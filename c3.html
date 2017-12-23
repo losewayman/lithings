@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>画图</title>
+<style>
+#canvas1 {
+
+	
+	
+	border:1px solid black;
+}
+#div1{
+	width:200px;
+	height:200px;
+	background-color:green;
+}
+#div2,#div3{
+	width:300px;
+	height:300px;
+	border:1px solid black;
+}
+
+</style>
+</head>
+<body>
+	<canvas id="canvas1" width="400" height="400"></canvas>
+	<div id="div1" draggable="true" ondragstart="drag(event)" >
+	</div>
+	<div id="div2" ondragover="allowdrop(event)" ondrop="drop(event)">
+	</div>
+	<div id="div3" ondragover="allowdrop(event)" ondrop="drop(event)">
+	</div>
+<script>
+	function drop(ev){
+		ev.preventDefault();
+		var data=ev.dataTransfer.getData("text");
+		ev.target.appendChild(document.getElementById("div1"));
+	}
+	function allowdrop(ev){
+		ev.preventDefault();
+	}
+	function drag(ev){
+		ev.dataTransfer.setData("text",ev.target.this);
+	}
+	var c1=document.getElementById("canvas1").getContext("2d");
+	c1.fillRect(10,10,100,100);
+	c1.moveTo(110,110);
+	c1.lineTo(200,200);
+	c1.stroke();
+	c1.beginPath();
+	c1.arc(200,200,60,0,2*Math.PI);
+	c1.stroke();
+	c1.font="30px Arial";
+	c1.fillText("hello world",200,50);
+	c1.strokeText("hello world",200,100);
+	var gd=c1.createLinearGradient(0,0,300,0);
+	gd.addColorStop(0,"black");
+	gd.addColorStop(0.3,"blue");
+	gd.addColorStop(1,"green");
+	c1.fillStyle=gd;
+	c1.fillRect(0,300,300,30);
+	var gb=c1.createRadialGradient(50,200,10,50,200,50);
+	gb.addColorStop(0,"black");
+	gb.addColorStop(1,"green");
+	c1.fillStyle=gb;
+	c1.fillRect(0,150,100,100);
+
+
+</script>
+</body>
+</html>
